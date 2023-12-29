@@ -8,6 +8,17 @@ TOKENS = {
     'PRINT_TK': r'print',
     'CLASS_TK': r'class',
 
+    'EQ_TK': r'==',
+    'PLUS_TK': r'\+',
+    'MUL_TK': r'\*',
+    'MINUS_TK': r'\-',
+    'SLASH_TK': r'\/',
+    'NOT_EQ_TK': r'!=',
+    'LESS_TK': r'\<',
+    'GREATER_TK': r'\>',
+    'LE_TK': r'<=',
+    'GE_TK': r'>=',
+
     'ASSIGN_TK': r'=',
     'DOT_TK': r'\.',
     'COLON_TK': r':',
@@ -20,18 +31,7 @@ TOKENS = {
     'BRACKET_OPEN_TK': r'\[',
     'BRACKET_CLOSE_TK': r'\]',
 
-    'PLUS_TK': r'\+',
-    'MUL_TK': r'\*',
-    'MINUS_TK': r'\-',
-    'SLASH_TK': r'\/',
-    'EQ_TK': r'==',
-    'NOT_EQ_TK': r'!=',
-    'LESS_TK': r'\<',
-    'GREATER_TK': r'\>',
-    'LE_TK': r'<=',
-    'GE_TK': r'>=',
-
     'CONST_STRING': r'".*?"|\'.*?\'',
     'CONST_NUMBER': r'\d',
-    'IDENTIFIER': r'[A-Za-z_]\w*',
+    'IDENTIFIER': r'([A-Za-z_]\w*)',
 }

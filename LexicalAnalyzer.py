@@ -1,11 +1,12 @@
 import re
 
+from SymbolTable import Symbol_Table
+
 class Token:
-    def __init__(self, line, col, token_name, value):
+    def __init__(self, line, col, token_name):
         self.line = line
         self.col = col
         self.token_name = '<' + token_name + '>'
-        self.value = value
 
     def __repr__(self):
         return self.token_name
@@ -18,6 +19,7 @@ class Lexical_Analyzer:
         self.col = 0
         # self.pattern = re.compile('|'.join(map(lambda token_name, regex: f'(?P<{token_name}>{regex})', tokens.items())))
         self.code_lines = source_code.split('\n')
+        self.symbol_table = Symbol_Table()
 
     def tokenize(self):
         token_stream = []
@@ -31,7 +33,11 @@ class Lexical_Analyzer:
                     self.col += 1
 
                 if match := self.pattern.match(code_line, self.col-1):
-                    token = Token(line=self.line, col=self.col, token_name=match.lastgroup, value=match.group(match.lastgroup))
+                    token_name, token_value = match.lastgroup, match.group(match.lastgroup)
+                    if token_name in ['IDENTIFIER', 'CONST_STRING', 'CONST_NUMBER']:
+                        token_name = 'ID_TK, ' + self.symbol_table.add_item(token_value, token_name)
+                    
+                    token = Token(line=self.line, col=self.col, token_name=token_name)
                     self.col = match.end()+1
                     token_line.append(token)
                 else:
