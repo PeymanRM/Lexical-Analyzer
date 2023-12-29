@@ -13,11 +13,9 @@ class Token:
 
 class Lexical_Analyzer:
     def __init__(self, tokens, source_code):
-        rules_list = [f'(?P<{token_name}>{regex})' for token_name, regex in tokens.items()]
-        self.pattern = re.compile('|'.join(rules_list))
         self.line = 0
         self.col = 0
-        # self.pattern = re.compile('|'.join(map(lambda token_name, regex: f'(?P<{token_name}>{regex})', tokens.items())))
+        self.patterns = re.compile('|'.join(map(lambda pattern: f'(?P<{pattern[0]}>{pattern[1]})', tokens.items())))
         self.code_lines = source_code.split('\n')
         self.symbol_table = Symbol_Table()
 
@@ -29,21 +27,27 @@ class Lexical_Analyzer:
             code_line = self.code_lines[self.line - 1]
             self.col = 1
             while self.col <= len(code_line):
-                while now := code_line[self.col-1] == ' ':
+                #escaping whitespace
+                while code_line[self.col-1] == ' ':
                     self.col += 1
-
-                if match := self.pattern.match(code_line, self.col-1):
-                    token_name, token_value = match.lastgroup, match.group(match.lastgroup)
+                
+                #find lexemes
+                lexeme = self.patterns.match(code_line, self.col-1)
+                if lexeme:
+                    token_name = lexeme.lastgroup
+                    token_value = lexeme.group(lexeme.lastgroup)
+                    #check if lexeme is symbol
                     if token_name in ['IDENTIFIER', 'CONST_STRING', 'CONST_NUMBER']:
+                        #add to symbol table and change token name
                         token_name = 'ID_TK, ' + self.symbol_table.add_item(token_value, token_name)
-                    
+                    #tokenize
                     token = Token(line=self.line, col=self.col, token_name=token_name)
-                    self.col = match.end()+1
+                    self.col = lexeme.end()+1
                     token_line.append(token)
                 else:
                     pass
                     #TODO: raise issue
-            token_stream.append(token_line)
             self.line += 1
+            token_stream.append(token_line)
 
         return token_stream

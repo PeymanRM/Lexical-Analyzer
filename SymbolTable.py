@@ -13,6 +13,7 @@ class Symbol_Table:
         return self.table
     
     def add_item(self, symbol_name, attribute):
+        #check if identifier already exists
         if attribute == 'IDENTIFIER':
             for symbol in self.table:
                 if symbol['symbol_name'] == symbol_name:

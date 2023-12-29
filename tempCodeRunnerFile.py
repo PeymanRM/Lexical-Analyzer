@@ -1,1 +1,1 @@
-token_stream = analyzer.tokenize()
+token_stream
