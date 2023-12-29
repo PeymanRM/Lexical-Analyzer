@@ -33,5 +33,5 @@ TOKENS = {
 
     'CONST_STRING': r'".*?"|\'.*?\'',
     'CONST_NUMBER': r'\d',
-    'ID_TK': r'([A-Za-z_]\w*) | (".*?"|\'.*?\') | (\d)',
+    'IDENTIFIER': r'[A-Za-z_]\w*',
 }
