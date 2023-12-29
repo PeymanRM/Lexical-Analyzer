@@ -1,0 +1,26 @@
+input:
+
+x = 6
+print x
+if ( x == 6 ) {
+    print "hi"
+}
+else {
+    print 'bye'
+}
+
+
+output:
+
+[
+    [],
+    ['x', '<ASSIGN_TK>', '6'],
+    ['<PRINT_TK>', 'x'], 
+    ['<IF_TK>', '<PARANTES_OPEN_TK>', 'x', '<EQ_TK>', '6', '<PARANTES_CLOSE_TK>', '<CBRACKET_OPEN_TK>'], 
+    ['<PRINT_TK>', '"hi"'], 
+    ['<CBRACKET_CLOSE_TK>'], 
+    ['<ELSE_TK>', '<CBRACKET_OPEN_TK>'], 
+    ['<PRINT_TK>', "'bye'"], 
+    ['<CBRACKET_CLOSE_TK>'], 
+    []
+]
