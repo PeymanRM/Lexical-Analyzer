@@ -12,78 +12,16 @@ else {
 
 output:
 Token stream:
-[<ID_TK, 1>, <ASSIGN_TK>, <ID_TK, 2>, <SEMICOLON_TK>]
-[<PRINT_TK>, <ID_TK, 1>]
-[<IF_TK>, <PARANTES_OPEN_TK>, <ID_TK, 1>, <EQ_TK>, <ID_TK, 3>, <PARANTES_CLOSE_TK>, <CBRACKET_OPEN_TK>]
-[<PRINT_TK>, <PARANTES_OPEN_TK>, <ID_TK, 4>, <PARANTES_CLOSE_TK>]
-[<CBRACKET_CLOSE_TK>]
-[<ELSE_TK>, <CBRACKET_OPEN_TK>]
-[<PRINT_TK>, <PARANTES_OPEN_TK>, <ID_TK, 5>, <PARANTES_CLOSE_TK>]
-[<CBRACKET_CLOSE_TK>]
-
-Symbol table:
-+------+---------------+--------------+
-|   ID | SYMBOL NAME   | ATTRIBUTE    |
-+======+===============+==============+
-|    1 | x             | IDENTIFIER   |
-+------+---------------+--------------+
-|    2 | 6             | CONST_NUMBER |
-+------+---------------+--------------+
-|    3 | 6             | CONST_NUMBER |
-+------+---------------+--------------+
-|    4 | "hi"          | CONST_STRING |
-+------+---------------+--------------+
-|    5 | 'bye'         | CONST_STRING |
-+------+---------------+--------------+
-
-Tokens:
-+--------+-------+---------------------+
-|   LINE |   COL | TOKEN               |
-+========+=======+=====================+
-|      1 |     1 | <ID_TK, 1>          |
-+--------+-------+---------------------+
-|      1 |     3 | <ASSIGN_TK>         |
-+--------+-------+---------------------+
-|      1 |     5 | <ID_TK, 2>          |
-+--------+-------+---------------------+
-|      1 |     6 | <SEMICOLON_TK>      |
-+--------+-------+---------------------+
-|      2 |     1 | <PRINT_TK>          |
-+--------+-------+---------------------+
-|      2 |     7 | <ID_TK, 1>          |
-+--------+-------+---------------------+
-|      3 |     1 | <IF_TK>             |
-+--------+-------+---------------------+
-|      3 |     3 | <PARANTES_OPEN_TK>  |
-+--------+-------+---------------------+
-|      3 |     4 | <ID_TK, 1>          |
-+--------+-------+---------------------+
-|      3 |     5 | <EQ_TK>             |
-+--------+-------+---------------------+
-|      3 |     8 | <ID_TK, 3>          |
-+--------+-------+---------------------+
-|      3 |     9 | <PARANTES_CLOSE_TK> |
-+--------+-------+---------------------+
-|      3 |    11 | <CBRACKET_OPEN_TK>  |
-+--------+-------+---------------------+
-|      4 |     5 | <PRINT_TK>          |
-+--------+-------+---------------------+
-|      4 |    11 | <PARANTES_OPEN_TK>  |
-+--------+-------+---------------------+
-|      4 |    12 | <ID_TK, 4>          |
-PS H:\Education\Computer Science\Dump\Lexiacal Analyzer>  h:; cd 'h:\Education\Computer Science\Dump\Lexiacal Analyzer'; & 'C:\Users\Peyman RM\AppData\Local\Programs\Python\Python311\python.exe' 'c:\Users\Peyman RM\.vscode\extensions\ms-python.python-2023.22.1\pythonFiles\lib\python\debugpy\adapter/../..\debugpy\launcher' '12027' '--' 'h:\Education\Computer Science\Dump\Lexiacal Analyzer\main.py' 
-
-Token stream:
 [<ID_TK, 1>, <ASSIGN_TK>, <ID_TK, 2>]
 [<PRINT_TK>, <ID_TK, 1>]
 []
-[<IF_TK>, <PARANTES_OPEN_TK>, <ID_TK, 1>, <EQ_TK>, <ID_TK, 3>, <PARANTES_CLOSE_TK>, <CBRACKET_OPEN_TK>]
+[<IF_TK>, <LEFT_PARANTES_TK>, <ID_TK, 1>, <EQ_TK>, <ID_TK, 3>, <RIGHT_PARANTES_TK>, <LEFT_CBRACKET_TK>]
 [<PRINT_TK>, <ID_TK, 4>]
-[<CBRACKET_CLOSE_TK>]
-[<ELSE_TK>, <CBRACKET_OPEN_TK>]
+[<RIGHT_CBRACKET_TK>]
+[<ELSE_TK>, <LEFT_CBRACKET_TK>]
 [<PRINT_TK>, <ID_TK, 5>]
 []
-[<CBRACKET_CLOSE_TK>]
+[<RIGHT_CBRACKET_TK>]
 
 Symbol table:
 +------+---------------+--------------+
@@ -116,7 +54,7 @@ Tokens:
 +--------+-------+---------------------+
 |      4 |     1 | <IF_TK>             |
 +--------+-------+---------------------+
-|      4 |     4 | <PARANTES_OPEN_TK>  |
+|      4 |     4 | <LEFT_PARANTES_TK>  |
 +--------+-------+---------------------+
 |      4 |     6 | <ID_TK, 1>          |
 +--------+-------+---------------------+
@@ -124,23 +62,23 @@ Tokens:
 +--------+-------+---------------------+
 |      4 |    11 | <ID_TK, 3>          |
 +--------+-------+---------------------+
-|      4 |    13 | <PARANTES_CLOSE_TK> |
+|      4 |    13 | <RIGHT_PARANTES_TK> |
 +--------+-------+---------------------+
-|      4 |    15 | <CBRACKET_OPEN_TK>  |
+|      4 |    15 | <LEFT_CBRACKET_TK>  |
 +--------+-------+---------------------+
 |      5 |     5 | <PRINT_TK>          |
 +--------+-------+---------------------+
 |      5 |    11 | <ID_TK, 4>          |
 +--------+-------+---------------------+
-|      6 |     1 | <CBRACKET_CLOSE_TK> |
+|      6 |     1 | <RIGHT_CBRACKET_TK> |
 +--------+-------+---------------------+
 |      7 |     1 | <ELSE_TK>           |
 +--------+-------+---------------------+
-|      7 |     6 | <CBRACKET_OPEN_TK>  |
+|      7 |     6 | <LEFT_CBRACKET_TK>  |
 +--------+-------+---------------------+
 |      8 |     5 | <PRINT_TK>          |
 +--------+-------+---------------------+
 |      8 |    11 | <ID_TK, 5>          |
 +--------+-------+---------------------+
-|     10 |     1 | <CBRACKET_CLOSE_TK> |
+|     10 |     1 | <RIGHT_CBRACKET_TK> |
 +--------+-------+---------------------+
