@@ -1,8 +1,10 @@
-x = 6;
+x = 6
 print x
-if(x== 6) {
-    print ("hi")
+
+if ( x == 6 ) {
+    print "hi"
 }
-else{
-    print( 'bye')
+else {
+    print 'bye'
+    
 }
