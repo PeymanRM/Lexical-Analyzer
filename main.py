@@ -4,25 +4,24 @@ from TOKENS import TOKENS
 from LexicalAnalyzer import Lexical_Analyzer
 from tabulate import tabulate 
 
-#! test code, should be removed in future
-SOURCE_CODE = \
-"""
-x = 6
-print x
-if (x==6 ) {
-    print("hi")
-}
-else {
-    print 'bye'
-}
-"""
-analyzer = Lexical_Analyzer(TOKENS, SOURCE_CODE)
-token_stream = analyzer.tokenize()
+SOURCE_CODE = open('docs/input1.pey', 'r')
+try:
+    analyzer = Lexical_Analyzer(TOKENS, SOURCE_CODE.read())
+    token_stream = analyzer.tokenize()
+except:
+    pass
+finally:
+    SOURCE_CODE.close()
+    
+print('\nToken stream:')
+print(*token_stream, sep='\n')
 
-print(*token_stream, sep="\n")
+print('\nSymbol table:')
+print(analyzer.symbol_table)
+
+print('\nTokens:')
 t = []
 for tl in token_stream:
     for tk in tl:
         t.append([tk.line, tk.col, tk.token_name])
-print(tabulate(t, headers=['line', 'col', 'token'], tablefmt='grid'))
-print(analyzer.symbol_table)
+print(tabulate(t, headers=['LINE', 'COL', 'TOKEN'], tablefmt='grid'))

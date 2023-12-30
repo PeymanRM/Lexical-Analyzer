@@ -28,7 +28,7 @@ class Lexical_Analyzer:
             self.col = 1
             while self.col <= len(code_line):
                 #escaping whitespace
-                while code_line[self.col-1] == ' ':
+                while self.col <= len(code_line) and code_line[self.col-1] == ' ':
                     self.col += 1
                 
                 #find lexemes
