@@ -44,9 +44,8 @@ class Lexical_Analyzer:
                     token = Token(line=self.line, col=self.col, token_name=token_name)
                     self.col = lexeme.end()+1
                     token_line.append(token)
-                else:
-                    pass
-                    #TODO: raise issue
+                elif self.col <= len(code_line):
+                    raise ValueError(f'Unrecognized lexeme, Ln {self.line}, Col {self.col}')
             self.line += 1
             token_stream.append(token_line)
 
