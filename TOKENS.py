@@ -37,6 +37,6 @@ TOKENS = {
     'RIGHT_BRACKET_TK': r'\]',
 
     'CONST_STRING': r'".*?"|\'.*?\'',
-    'CONST_NUMBER': r'\d',
+    'CONST_NUMBER': r'\d+',
     'IDENTIFIER': r'([A-Za-z_]\w*)',
 }

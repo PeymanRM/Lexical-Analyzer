@@ -1,7 +1,7 @@
-x = 6
+x = 66
 print x
 
-if ( x == 6 ) {
+if ( x == 66 ) {
     print "hi"
 }
 else {
