@@ -1,6 +1,6 @@
 import re
 
-from SymbolTable import Symbol_Table
+from symbolTable import Symbol_Table
 
 class Token:
     def __init__(self, line, col, token_name):

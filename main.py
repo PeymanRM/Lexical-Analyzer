@@ -1,7 +1,7 @@
 # Coded by Peyman Roohi-Moghadam
 
 from TOKENS import TOKENS
-from LexicalAnalyzer import Lexical_Analyzer
+from lexicalAnalyzer import Lexical_Analyzer
 from tabulate import tabulate 
 
 SOURCE_CODE = open('docs/input2.pey', 'r')
