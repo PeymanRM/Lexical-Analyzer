@@ -4,7 +4,7 @@ from TOKENS import TOKENS
 from LexicalAnalyzer import Lexical_Analyzer
 from tabulate import tabulate 
 
-SOURCE_CODE = open('docs/input1.pey', 'r')
+SOURCE_CODE = open('docs/input2.pey', 'r')
 try:
     analyzer = Lexical_Analyzer(TOKENS, SOURCE_CODE.read())
     token_stream = analyzer.tokenize()

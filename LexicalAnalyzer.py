@@ -39,6 +39,8 @@ class Lexical_Analyzer:
                     #check if lexeme is symbol
                     if token_name in ['IDENTIFIER', 'CONST_STRING', 'CONST_NUMBER']:
                         #add to symbol table and change token name
+                        if re.compile(r'\d+[a-zA-Z_]+').match(code_line, self.col-1):
+                            raise ValueError(f'Unrecognized lexeme, Ln {self.line}, Col {self.col}')
                         token_name = 'ID_TK, ' + self.symbol_table.add_item(token_value, token_name)
                     #tokenize
                     token = Token(line=self.line, col=self.col, token_name=token_name)
